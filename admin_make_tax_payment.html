@@ -1,0 +1,56 @@
+{% include 'admin_header.html' %}
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-02.jpg" alt="">
+                <div class="text-content">
+                  <!-- <h3>  Chat Bot For College </h3> -->
+                  <center>
+                  <form method="post">
+                  <h5 style="font-size: 50px;"><b>Tax</b></h5>
+                  <table class="table" style="width: 600px;font-size: 30px">
+			<tr>
+				<th>select User</th>
+				<td>
+					<select name="user" class="form-control">
+						{% for row in data['user'] %}
+						<option value="{{row['user_id']}}">{{row['firstname']+" "+row['lastname']}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Type</th>
+				<td><select name="types" required class="form-control">
+					<option value="House">House</option>
+					<option value="Building">Building</option>
+				</select></td>
+			</tr>
+			
+
+
+			<tr>
+				<th>Amount</th>
+				<td><input type="text" name="amount" class="form-control"></td>
+			</tr>
+			<tr>
+				<td  align="center" colspan="2"><input type="submit" name="ADD" value="ADD" class="btn btn-primary"></td>
+			</tr>
+
+			
+		</table>
+</form>
+				</center>
+
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
+{% include 'footer.html' %}
+

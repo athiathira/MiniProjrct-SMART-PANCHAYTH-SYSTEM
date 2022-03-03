@@ -1,0 +1,74 @@
+{% include 'admin_header.html' %}
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-02.jpg" alt="">
+                <div class="text-content">
+                  <!-- <h3>  Chat Bot For College </h3> -->
+                  <center>
+                  <form method="post">
+                  <h5 style="font-size: 50px;"><b>Loan</b></h5>
+                  <table class="table" style="width: 600px;font-size: 30px">
+			<tr>
+				<th>Loan</th>
+				<td><input type="text" name="loan" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Amount</th>
+				<td><input type="text" name="amount" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"> <input type="submit" name="SUBMIT" value="SUBMIT" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+				</center>
+
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
+<section class="section" id="about">
+        <div class="container">
+            
+                        <div class="section-heading">
+                            <center>
+                            	<form>
+                            <h2>View Loan</h2>
+                            <br>
+                            
+                            <table class="table" style="width: 600px;font-size: 20px">
+	<tr>
+		<th>slno</th>
+		<th>loan</th>
+		<th>amount</th>
+		
+
+
+	</tr>
+	{% for row in data['loan'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['loan']}}</td>
+		<td>{{row['amount']}}</td>
+	</tr>
+		{% endfor %}
+
+	</table>
+
+							</form>
+							</center>
+
+                        </div>
+        </div>
+    </section>
+
+
+
+{% include 'footer.html' %}

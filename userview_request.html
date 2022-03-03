@@ -1,0 +1,93 @@
+{% include 'user_header.html' %}
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-02.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form>
+                  	<br><br>
+                  	<h5 style="font-size: 50px;"><b> View Request Details</b></h5>
+                  
+			      	<table class="table" style="width: 600px;font-size: 20px">
+							      	<tr>
+					<th>slno</th>
+					<th>first name</th>
+					<th>last name</th>
+					<th>email</th>
+					<th>phone</th>
+					<th>certificate</th>
+					<th>description</th>
+					<th>Status</th>
+					
+
+				</tr>
+				{% for row in data['certirequest'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['firstname']}}</td>
+					<td>{{row['lastname']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['certificate']}}</td>
+					<td>{{row['description']}}</td>
+					<td>{{row['status']}}</td>
+					{% if row['status']=="reject" %}
+					<td><a href="user_upload_files?cid={{row['crequest_id']}}" class="btn btn-info">upload files</a></td>
+
+					{% endif %}
+					</tr>
+					{% endfor %}
+		
+	
+						</table>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+<!-- <center>
+	<form method="post">
+		<h1>view request details</h1>
+			<table>
+				<tr>
+					<th>slno</th>
+					<th>first name</th>
+					<th>last name</th>
+					<th>email</th>
+					<th>phone</th>
+					<th>certificate</th>
+					<th>description</th>
+					
+
+				</tr>
+				{% for row in data['certirequest'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['firstname']}}</td>
+					<td>{{row['lastname']}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['phone']}}</td>
+					<td>{{row['certificate']}}</td>
+					<td>{{row['description']}}</td>
+					<td><a href="user_upload_files?cid={{row['crequest_id']}}">upload files</a></td>
+					</tr>
+					{% endfor %}
+		
+	        </table>
+	    </form>
+
+	</center> -->
+	{% include 'footer.html' %}
+			

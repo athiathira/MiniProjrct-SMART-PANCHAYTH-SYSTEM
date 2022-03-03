@@ -1,0 +1,42 @@
+{% include 'admin_header.html' %}
+
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-03.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form>
+                  	<h5 style="font-size: 50px;"><b> View Uploaded Files</b></h5>
+                  	
+			      	<table class="table" style="width: 400px;font-size: 30px">
+			      		<tr>
+							<th>Files</th>
+							
+						</tr>
+						{% for row in data['upload'] %}
+						<tr>
+							<td><a href="/{{row['files']}}" download><img src="/{{row['files']}}" height="100" width="100"></a></td>
+						</tr>
+						{% endfor %}
+					</table>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+
+
+{% include 'footer.html' %}

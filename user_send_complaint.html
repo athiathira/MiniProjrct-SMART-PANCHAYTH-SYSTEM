@@ -1,0 +1,72 @@
+{% include 'user_header.html' %}
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-02.jpg" alt="">
+                <div class="text-content">
+                  <!-- <h3>  Chat Bot For College </h3> -->
+                  <center>
+                  <form method="post">
+                  <h5 style="font-size: 50px;"><b>Send Complaint</b></h5>
+                  <table class="table" style="width: 600px;font-size: 30px">
+					<tr>
+				<th>Complaint</th>
+				<td><input type="text" name="Cp" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="SEND" value="SEND" class="btn btn-success"></td>
+			</tr>
+					</tr>
+				</table>
+				</form>
+				</center>
+
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
+<section class="section" id="about">
+        <div class="container">
+            
+                        <div class="section-heading">
+                            <center>
+                            	<form>
+                            <h2>View Complaint</h2>
+                            <br>
+                            
+                            <table class="table" style="width: 600px;font-size: 20px">
+								<tr>
+									<th>slno</th>
+									<th>complaint</th>
+									<th>reply</th>
+									<th>date</th>
+								</tr>
+
+								{% for row in data['complaint'] %}
+								<tr>
+									<td>{{loop.index}}</td>
+									<td>{{row['complaint']}}</td>
+									<td>{{row['reply']}}</td>
+									<td>{{row['date']}}</td>
+									
+									</tr>
+									{% endfor %}
+							</table>
+							
+							</form>
+							</center>
+
+                        </div>
+        </div>
+    </section>
+
+
+
+{% include 'footer.html' %}

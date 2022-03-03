@@ -1,0 +1,54 @@
+{% include 'admin_header.html' %}
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/im2.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form>
+                  	<br><br>
+                  	<h5 style="font-size: 50px;color: black"><b> View Users</b></h5>
+                  <b>
+			      	<table class="table" style="width: 600px;font-size: 20px;color: black">
+							      		<tr style="font-size: 30px;">
+											<th>slno</th>
+											<th>first name</th>
+											<th>last name</th>
+											<th>place</th>
+											<th>phone</th>
+											<th>email</th>
+											
+										</tr>
+
+										{% for row in data['user'] %}
+										<tr>
+											<td>{{loop.index}}</td>
+											<td>{{row['firstname']}}</td>
+											<td>{{row['lastname']}}</td>
+											<td>{{row['place']}}</td>
+											<td>{{row['phone']}}</td>
+											<td>{{row['email']}}</td>
+										</tr>
+											{% endfor%}
+						</table>
+					</b>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+		
+
+{% include 'footer.html' %}

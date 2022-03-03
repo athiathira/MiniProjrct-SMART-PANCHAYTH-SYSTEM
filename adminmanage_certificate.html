@@ -1,0 +1,91 @@
+{% include 'admin_header.html'%}
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/new1.jpg" alt="">
+                <div class="text-content">
+                  <!-- <h3>  Chat Bot For College </h3> -->
+                  <center>
+                  	<br>
+                  <form method="post">
+					{% if data['cer'] %}
+                  <h5 style="font-size: 60px;"><b>Update CERTIFICATE DETAILS</b></h5>
+                  <table class="table" style="width: 600px;font-size: 25px">
+					<tr>
+				<th>Certificate</th>
+				<td><input type="text" name="ct" value="{{data['cer'][0]['certificate']}}" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td><input type="text" name="dp" value="{{data['cer'][0]['description']}}" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="update" value="UPDATE" class="btn-info" ></td>
+			</tr>
+				</table>
+				{% else %}
+
+				<h5 style="font-size: 60px;"><b>CERTIFICATE DETAILS</b></h5>
+				<table class="table" style="width: 600px;font-size: 25px">
+					<tr>
+				<th><b>Certificate</b></th>
+				<td><input type="text" name="ct" required class="form-control"></td>
+			</tr>
+			<tr>
+				<th><b>Description</b></th>
+				<td><input type="text" name="dp" required class="form-control"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="ADD" value="ADD" class="btn btn-primary"></td>
+			</tr>
+			</table>
+			{% endif %}
+				</center>
+
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+
+<section class="section" id="about">
+        <div class="container">
+            
+                        <div class="section-heading">
+                            <center>
+                            	<form>
+                            
+                            
+                            <h2>view certificate details</h2>
+                            <table class="table" style="width: 600px;font-size: 20px">
+								<tr>
+		<th>slno</th>
+		<th>certificate</th>
+		<th>description</th>
+
+	</tr>
+	{% for row in data['certidetails'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['certificate']}}</td>
+		<td>{{row['description']}}</td>
+		<td><a href="?action=delete&id={{row['cdetails_id']}}" class="btn btn-info">delete</a></td>
+		<td><a href="?action=update&id={{row['cdetails_id']}}" class="btn btn-info">update</a></td>
+	</tr>
+	{% endfor %}
+							</table>
+							
+							</form>
+							</center>
+
+                        </div>
+        </div>
+    </section>
+
+{% include 'footer.html'%}
+

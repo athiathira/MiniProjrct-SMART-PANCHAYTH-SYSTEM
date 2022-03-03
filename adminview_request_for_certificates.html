@@ -1,0 +1,73 @@
+{% include 'admin_header.html' %}
+
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/im2.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form method="post">
+                  	<br><br>
+                  	<h5 style="font-size: 50px;"><b> View request certificate details</b></h5>
+                
+			      	<table class="table" style="width: 600px;font-size: 19px;color: black">
+							      	<tr>
+		<th>slno</th>
+		<th>firstname</th>
+		<th>lastname</th>
+		<th>certificate</th>
+		<th>description</th>
+		<th>status</th>
+		<th>files</th>
+
+
+	</tr>
+	<b>
+	{% for row in data['certficates'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['firstname']}}</td>
+		<td>{{row['lastname']}}</td>
+		<td>{{row['certificate']}}</td>
+		<td>{{row['description']}}</td>
+		<td>{{row['status']}}</td>
+		<td><img src="/{{row['files']}}" height="50" width="50"></td>
+
+
+		<td><a href="admin_view_upload_files?cid={{row['crequest_id']}}" class="btn btn-info">view upload files</a></td>
+
+		{% if row['status']=="approve" %}
+		<td><a href="admin_upload_certficate?cid={{row['crequest_id']}}" class="btn btn-info">upload certificate</a></td>
+		{% endif %}
+
+		
+		{% if row['status']=="pending" %}
+		<td><a href="?action=approve&id={{row['crequest_id']}}" class="btn btn-info">Approve</a></td>
+		<td><a href="?action=reject&id={{row['crequest_id']}}" class="btn btn-info">Reject</a></td>
+		{% endif %}
+		
+		</tr>
+		{% endfor %}
+	</b>
+	
+	
+						</table>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+		
+{% include 'footer.html' %}

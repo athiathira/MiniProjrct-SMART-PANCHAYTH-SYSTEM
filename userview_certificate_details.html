@@ -1,0 +1,70 @@
+{% include 'user_header.html' %}
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-01.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form method="post">
+                  	<br><br>
+                  	<h5 style="font-size: 50px;"><b> View Certificate Details</b></h5>
+                  
+			      	<table class="table" style="width: 600px;font-size: 20px">
+							   <tr>
+		<th>slno</th>
+		<th>certificate</th>
+		<th>description</th>
+
+	</tr>
+	{% for row in data['certidetails'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['certificate']}}</td>
+		<td>{{row['description']}}</td>
+		<td><a href="user_request_for_certificate_details?id={{row['cdetails_id']}}" class="btn btn-info">request</a></td>
+		</tr>
+		{% endfor %}
+		
+	
+						</table>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+<!-- <center>
+	<form method="post">
+		<h1>view cerificate details</h1>
+		<table>
+	
+	<tr>
+		<th>slno</th>
+		<th>certificate</th>
+		<th>description</th>
+
+	</tr>
+	{% for row in data['certidetails'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['certificate']}}</td>
+		<td>{{row['description']}}</td>
+		<td><a href="?action=request&id={{row['cdetails_id']}}">request</a></td>
+		</tr>
+		{% endfor %}
+	
+</table>
+</center> -->
+
+{% include 'footer.html' %}
+		

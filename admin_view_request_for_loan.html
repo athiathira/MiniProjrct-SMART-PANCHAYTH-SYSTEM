@@ -1,0 +1,54 @@
+{% include 'admin_header.html' %} 
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/im2.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form method="post">
+                  	<br><br>
+                  	<h5 style="font-size: 50px;"><b> View request for loan</b></h5>
+                
+			      	<table class="table" style="width: 600px;font-size: 19px;color: black">
+			
+				<tr>
+		<th>slno</th>
+		<th>first name</th>
+		<th>last name</th>
+		<th>loan</th>
+		<th>amount</th>
+		<th>Status</th>
+	</tr>
+	{% for row in data['loan'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{row['firstname']}}</td>
+		<td>{{row['lastname']}}</td>
+		<td>{{row['loan']}}</td>
+		<td>{{row['amount']}}</td>
+		<td>{{row['status']}}</td>
+		{% if row['status']=="pending" %}
+		<td><a href="?action=accept&rid={{row['request_id']}}" class="btn btn-info">Accept</a>
+			<a href="?action=reject&rid={{row['request_id']}}" class="btn btn-info">Reject</a>
+		</td>
+		{% endif %}
+	</tr>
+		{% endfor %}
+			</table>
+			</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+
+{% include 'footer.html'%}

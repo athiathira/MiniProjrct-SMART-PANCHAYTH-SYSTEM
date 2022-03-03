@@ -1,0 +1,58 @@
+{% include 'admin_header.html'%}
+
+<div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item">
+            <div class="img-fill">
+                <img src="/static/assets/images/slide-03.jpg" alt="">
+                <div class="text-content">
+                  
+               	 <center>
+                  <form>
+                  	<br><br>
+                  	<h5 style="font-size: 50px;"><b> View Complaint</b></h5>
+                  
+			      	<table class="table" style="width: 600px;font-size: 20px">
+							      		<tr>
+										<th>slno</th>
+										<th>firstname</th>
+										<th>lastname</th>
+										<th>complaint</th>
+										<th>reply</th>
+										<th>date</th>
+
+
+									</tr>
+									{% for row in data['complaints'] %}
+									<tr>
+										<td>{{loop.index}}</td>
+										<td>{{row['firstname']}}</td>
+										<td>{{row['lastname']}}</td>
+										<td>{{row['complaint']}}</td>
+										<td>{{row['reply']}}</td>
+										<td>{{row['date']}}</td>
+										{% if row['reply']=="pending" %}
+										<td><a href="admin_send_reply?cid={{row['complaint_id']}}" class="btn btn-success">send reply</a></td>
+										{% endif %}
+										</tr>
+										{% endfor %}
+	
+						</table>
+					
+					</form>
+			      </center>
+                  
+                </div>
+            </div>
+          </div>
+         
+          
+          <!-- // Item -->
+        </div>
+</div>
+
+
+
+{% include 'footer.html' %}
+		
