@@ -1,0 +1,1 @@
+# MiniProjrct-SMART-PANCHAYTH-SYSTEM
